@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+  <meta charset="UTF-8" />
+  <title>Hello, JSF!</title>
+</h:head>
+<h:body>
+  <h:form id="helloForm">
+    <p>The time now is <h:outputText value="#{helloController.time}" /></p>
+    <h:panelGroup id="helloPanel">
+      <h1>Hello, <h:outputText value="#{helloController.visitor}" />!</h1>
+      <p>The time was update to <h:outputText value="#{helloController.time}" /></p>
+    </h:panelGroup>
+    <p>Please tell me your name: 
+      <h:inputText value="#{helloController.visitor}">
+        <f:ajax event="blur" render="helloPanel" execute="@this" />
+      </h:inputText>
+    </p>
+  </h:form>
+</h:body>
+</html>
